@@ -1,18 +1,25 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <data-table :header="header" :data="data" :options="{editable:true, datatype:'text'}"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import DataTable from './components/DataTable.vue';
 
 export default {
   name: 'app',
   components: {
-    HelloWorld,
+    DataTable,
   },
+  data() {
+    return {
+      header : ['Product', 'Batch', 'Price', 'Total'],
+      data : [['Patanjali', 'WETG76', '76', '80'], 
+                ['Colgate', 'WET876', '45', '50'],
+                ['Volini spray gel', 'WRT876', '35', '59']]
+    };
+  }
 };
 </script>
 

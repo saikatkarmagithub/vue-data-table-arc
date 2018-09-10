@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <data-table :header="header" :data="data" :options="{editable:true, datatype:'text'}"/>
+    <data-table :header="header" :data="data" :options="{
+      columns: columnsCustomization
+    }"/>
   </div>
 </template>
 
@@ -15,9 +17,16 @@ export default {
   data() {
     return {
       header : ['Product', 'Batch', 'Price', 'Total'],
-      data : [['Patanjali', 'WETG76', '76', '80'], 
-                ['Colgate', 'WET876', '45', '50'],
-                ['Volini spray gel', 'WRT876', '35', '59']]
+      data : [['Patanjali', 'WETG76', 76, 80], 
+                ['Colgate', 'WET876', 45, 50],
+                ['Volini spray gel', 'WRT876', 35, 59]],
+      columnsCustomization: [{
+        editable: true,
+        type: 'text'
+      }, {}, {
+        editable: true,
+        type: 'number'
+      }, {}],
     };
   }
 };

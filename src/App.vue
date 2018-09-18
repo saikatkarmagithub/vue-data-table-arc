@@ -1,8 +1,6 @@
 <template>
   <div id="app">
-    <data-table :header="header" :data="data" :options="{
-      columns: columnsCustomization
-    }"/>
+    <data-table :header="header" :data="data" :options="{columns, rows}"/>
   </div>
 </template>
 
@@ -20,13 +18,19 @@ export default {
       data : [['Patanjali', 'WETG76', 76, 80], 
                 ['Colgate', 'WET876', 45, 50],
                 ['Volini spray gel', 'WRT876', 35, 59]],
-      columnsCustomization: [{
+      columns: [{
         editable: true,
         type: 'text'
       }, {}, {
         editable: true,
-        type: 'number'
-      }, {}],
+        type: 'number',
+        sortable: true
+      }, {
+        sortable: true
+      }],
+      rows: [
+        { color: 'red' }, {}, {}
+      ]
     };
   }
 };
